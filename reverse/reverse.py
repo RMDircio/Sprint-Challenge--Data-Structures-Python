@@ -39,4 +39,27 @@ class LinkedList:
         return False
 
     def reverse_list(self, node, prev):
-        pass
+       # get the current value at the head
+       node = self.head
+       # set the head to None to start the list backwards
+       self.head = None
+
+       # while there is a node in the list
+       while node:
+           # put the current node(LinkedList (self)) at the head of the new(reversed) list
+           ''' Since I am working in the LinkedList class, I can use "self" to call any function that 
+           is part of the LinkedList class.'''
+           # call LL class (self.) with adding to head function
+           # brings the last elemnet (node.value) to the head of the list
+           self.add_to_head(node.value)
+           # reset node to the next node in the old list
+           node = node.next_node
+        
+        
+
+
+
+
+
+
+

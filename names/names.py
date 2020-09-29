@@ -12,11 +12,30 @@ f.close()
 
 duplicates = []  # Return the list of duplicates in this data structure
 
-# Replace the nested for loops below with your improvements
-for name_1 in names_1:
-    for name_2 in names_2:
-        if name_1 == name_2:
-            duplicates.append(name_1)
+# # Replace the nested for loops below with your improvements
+# for name_1 in names_1:
+#     for name_2 in names_2:
+#         if name_1 == name_2:
+#             duplicates.append(name_1)
+
+# first try
+# for name_1 in names_1:
+#     if names_1 == names_2:
+#         duplicates.append(name_1)
+
+# 2nd try
+# for name_1 in names_1:
+#     for name_2 in names_2:
+#         while name_1 == name_2:
+#             duplicates.append(name_1)
+
+# 3rd try
+# run through first file
+for i in names_1:
+    # run through second file
+    if i in names_2:
+        duplicates.append(i)
+
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")

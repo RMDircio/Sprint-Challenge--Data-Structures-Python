@@ -7,8 +7,11 @@ class RingBuffer:
 
     def append(self, item):
         ''' attach item on RingBuffer class '''
-        # insert the item into the list at the next index
-        self.list.insert(self.next_index, item)
+        if len(self.list) < self.capacity:
+            # insert the item into the list at the next index
+            self.list.append(item)
+        else:
+            self.list[self.next_index] = item
         # create the next index
         # increase index by 1 and if remainder is 0, then index becomes 0
         self.next_index = (self.next_index + 1) % self.capacity
@@ -39,3 +42,14 @@ class RingBuffer:
 # buffer.append('f')
 
 # buffer.get()   # should return ['d', 'e', 'f']
+
+buffer = RingBuffer(5)
+
+buffer.append('a')
+buffer.append('b')
+buffer.append('c')
+buffer.append('d')
+buffer.append('e')
+buffer.append('f')
+
+print(buffer.get()) 
